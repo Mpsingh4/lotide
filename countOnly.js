@@ -12,16 +12,18 @@ const countOnly = function(allItems, itemsToCount) {
 
   for (let key in itemsToCount) {
     if (itemsToCount[key]) {
-      let count = 0;
-      allItems.forEach(element => {
-        if (element === key) {
-          count++;
+        allItems.forEach(element => {
+            if (element === key) {
+                if (!countResult[key]){
+                    countResult[key] = 1;
+        } else {
+          countResult[key]++;
         }
-      });
-      countResult[key] = count;
-    }
+      }
+    });
+
   }
-  return countResult;
+}return countResult;
 };
 
 const firstNames = [
