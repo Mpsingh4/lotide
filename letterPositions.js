@@ -4,7 +4,7 @@ const assertArraysEqual = function(actual, expected) {
   } else {
     console.log(`Assertion Failed: ${actual} !== ${expected}`);
   }
-}
+};
 
 const letterPositions = function(sentence) {
   const results = {};
@@ -12,10 +12,10 @@ const letterPositions = function(sentence) {
     if (!results[letter]) {
       results[letter] = [];
     }
-    results[letter].push(key)
-  })
+    results[letter].push(key);
+  });
 
-  for(let i = 0; i < sentence.length; i++) {
+  for (let i = 0; i < sentence.length; i++) {
     results[sentence[i]].push(i);
 
   }
