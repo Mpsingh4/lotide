@@ -7,6 +7,7 @@
     "test": "test"
   },
   "dependencies": {
+    "@mpsingh4/my-test-package": "file:my-test-package",
     "chai": "^4.3.7"
   },
   "devDependencies": {
