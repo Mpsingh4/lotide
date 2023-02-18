@@ -10,9 +10,3 @@ const assertEqual = function(actual, expected) {
 
 console.log(assertEqual("lighthouse labs", "bootcamp"));
 console.log(assertEqual(1, 1));
-
-
-  ))))))temporary shit get rid of after ))))))
-if (keys.length !== key2.length) {// check if the length is the same, although i think this may be redundant.
-  return false;
-}

@@ -1,24 +1,29 @@
-function eqArrays(arr1, arr2) {
-    if (!Array.isArray(arr1) || !Array.isArray(arr2)){
-        return false;
-    }
-    if (arr1.length !== arr2.length){
-        return false;
-    }
-    for (let i = 0; i < arr1.length; i++){
-        if (arr1[i] !== arr2[i]){
-            return false;
-        }
-    } return true
-}
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected) === true) {
-    console.log(`Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`Assertion Failed: ${actual} !== ${expected}`);
-  }
-}
+const eqArrays = require('./eqArrays');
+const assertArraysEqual = require('./assertArraysEqual');
 
+const middle = function(array) {
+  let lengthOfArray = array.length;
+    
+  if (lengthOfArray.length > 3){
+    return [];
+  };
+  if (lengthOfArray % 2 === 0){
+    return [array[Math.floor(lengthOfArray/2)-1], array[Math.ceil(lengthOfArray/2)]];
+  };
+  if (lengthOfArray % 2 === 1){
+    return [array[Math.ceil(lengthOfArray/2) -1]];
+  };   
+};
+
+module.exports = middle;
+
+console.log(middle([1, 2, 3, 4])) // => [2, 3]
+console.log(middle([1, 2, 3, 4, 5, 6])) // => [3, 4]
+console.log(middle([1, 2, 3])) // => [2]
+console.log(middle(([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]))); // => [3]
+
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), [5, 6]); // => [5. 6]
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), [6]); // => [6]
 
 /* out loud code
 Implement middle which will take in an array and return the middle-most element(s) of the given array.
@@ -52,23 +57,3 @@ For arrays with an even number of elements,
   then return result 
 
  */
-const middle = function(array) {
-  let lengthOfArray = array.length;
-    
-  if (lengthOfArray.length > 3){
-    return [];
-  } 
-  if (lengthOfArray % 2 === 0){
-    return [array[Math.floor(lengthOfArray/2)-1], array[Math.ceil(lengthOfArray/2)]]
-  }
-  if (lengthOfArray % 2 === 1){
-    return [array[Math.ceil(lengthOfArray/2) -1]]
-  }   
-}
-
-console.log(middle([1, 2, 3, 4])) // => [2, 3]
-console.log(middle([1, 2, 3, 4, 5, 6])) // => [3, 4]
-console.log(middle([1, 2, 3])) // => [2]
-console.log(middle([1, 2, 3, 4, 5])) // => [3]
-console.log(eqArrays(middle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) [5, 6])) // => [5. 6]
-console.log(assertArraysEqual(middle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], [6]))) // => [6]
